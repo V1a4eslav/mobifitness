@@ -1,0 +1,141 @@
+.includes {
+   // .includes__container
+   &__container {
+      padding-top: 110px;
+      @include adaptiveValue("padding-left", 43, 15);
+      @include adaptiveValue("padding-right", 43, 15);
+      padding-bottom: 140px;
+      @media (max-width: $mobile) {
+         padding-top: 40px;
+         padding-bottom: 45px;
+      }
+   }
+   // .includes__inner
+   &__inner {
+      position: relative;
+      background: #2e353d;
+      border-radius: 45px;
+      @include adaptiveValue("padding-left", 135, 22);
+      @include adaptiveValue("padding-right", 135, 22);
+      @include adaptiveValue("padding-top", 80, 37);
+      @include adaptiveValue("padding-bottom", 80, 40);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transform-style: preserve-3d;
+      &::after {
+         content: "";
+         position: absolute;
+         bottom: 50px;
+         right: 0;
+         transform: translateX(50%);
+         width: percent(221, 1463);
+         height: percent(166, 750);
+         display: inline-block;
+         background-image: url("../img/massage.png");
+         background-size: contain;
+         background-repeat: no-repeat;
+         transform: translateZ(100px);
+         @media (max-width: 1920px) {
+            transform: translateX((percent(270, 1920))) translateZ(100px);
+         }
+         @media (max-width: 1700px) {
+            transform: translateX((percent(270, 1920))) translateZ(20px);
+         }
+         @media (max-width: $tablet) {
+            transform: translateX((percent(270, 1920)));
+            bottom: 0;
+         }
+         @media (max-width: $mobile) {
+            display: none;
+         }
+      }
+      &::before {
+         content: "";
+         position: absolute;
+         top: 40px;
+         left: 0;
+         display: inline-block;
+         background-image: url("../img/envelope.png");
+         background-size: contain;
+         width: percent(270, 1463);
+         height: percent(217, 750);
+         background-repeat: no-repeat;
+         transform: translateX(-50%);
+         @media (max-width: 1920px) {
+            transform: translateX(-(percent(270, 1920)));
+         }
+         @media (max-width: $mobile) {
+            display: none;
+         }
+      }
+   }
+   // .includes__title
+   &__title {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-align: center;
+      max-width: 1006px;
+      transform: translateZ(50px);
+      @include adaptiveValue("margin-bottom", 70, 42);
+      @media (max-width: $mobile) {
+         transform: translateZ(0px);
+      }
+   }
+   // .includes__items
+   &__items {
+      display: flex;
+      flex-wrap: wrap;
+      @include adaptiveValue("row-gap", 60, 24);
+      @include adaptiveValue("column-gap", 40, 24);
+      @include adaptiveValue("margin-bottom", 80, 42);
+      transform-style: preserve-3d;
+   }
+   // .includes__item
+   &__item {
+      transform: translateZ(50px);
+      flex: 1 1 calc((100% / 3) - 40px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 15px;
+      @media (max-width: $tablet) {
+         flex-basis: 100%;
+         transform: translateZ(0px);
+      }
+   }
+   // .includes__item-label
+   &__item-label {
+      text-align: center;
+      @include adaptiveValue("font-size", 30, 16);
+      line-height: calc(44 / 30 * 100%);
+      color: #fbd748;
+      font-weight: 500;
+      flex: 1 0 auto;
+      @include adaptiveValue("margin-bottom", 16, 8);
+   }
+   // .includes__item-text
+   &__item-text {
+      @include adaptiveValue("font-size", 20, 14);
+      line-height: calc(26 / 20 * 100%);
+      color: #ffffff;
+      text-align: center;
+      // align-self: center;
+   }
+   // .includes__btn
+   &__btn {
+      font-size: 24px;
+      padding: 0 48px;
+      height: 78px;
+      transform: translateZ(100px);
+      @media (max-width: $tablet) {
+         transform: translateZ(0px);
+      }
+      @media (max-width: $mobile) {
+         font-size: 16px;
+         padding: 0px 16px;
+         height: 52px;
+      }
+   }
+}

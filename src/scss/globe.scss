@@ -1,0 +1,107 @@
+.globe {
+   // .globe__container
+   &__container {
+      @include adaptiveValue("padding-top", 234, 44);
+      @include adaptiveValue("padding-bottom", 90, 44);
+   }
+   // .globe__inner
+   &__inner {
+      display: flex;
+      align-items: center;
+      gap: percent(89, 1520);
+      @media (max-width: $mobile) {
+         display: block;
+      }
+   }
+   // .globe__block
+   &__block {
+      flex: 0 0 calc(50% - 30px);
+      // .globe__block_image
+      &_image {
+         flex: 0 0 percent(683, 1550);
+         @media (max-width: $mobile) {
+            margin-bottom: 50px;
+         }
+      }
+   }
+   // .globe__block-image-wrapper
+   &__block-image-wrapper {
+      position: relative;
+      width: 100%;
+      @media (max-width: $mobile) {
+         width: percent(283, calc(360 - 30));
+         margin: 0 auto;
+      }
+   }
+   // .globe__image
+   &__image {
+      max-width: 100%;
+      img {
+         width: 100%;
+         height: 100%;
+      }
+   }
+   // .globe__country-name
+   &__country-name {
+      position: absolute;
+      top: -(percent(28, 458));
+      right: 0;
+      display: inline-block;
+      background: radial-gradient(110.31% 293.45% at 86.91% 13.4%, #fbd748 0%, rgba(251, 215, 72, 0) 100%)
+         rgba(251, 215, 72, 0.3);
+      opacity: 0.8;
+      backdrop-filter: blur(19px);
+      border-radius: 20px;
+      @include adaptiveValue("padding-top", 26, 12);
+      @include adaptiveValue("padding-bottom", 26, 12);
+      @include adaptiveValue("padding-left", 49, 16);
+      @include adaptiveValue("padding-right", 39, 16);
+   }
+   // .globe__snd
+   &__snd {
+      position: absolute;
+      left: 0;
+      bottom: (percent(49, 458));
+      display: inline-block;
+      background: radial-gradient(121.65% 316.97% at 10.52% 84.54%, #15b68e 0%, rgba(147, 231, 54, 0) 100%),
+         linear-gradient(78.55deg, rgba(147, 231, 54, 0.3) -2.26%, rgba(147, 231, 54, 0) 105.67%);
+      opacity: 0.8;
+      backdrop-filter: blur(19px);
+      border-radius: 20px;
+      @include adaptiveValue("padding-top", 25, 12);
+      @include adaptiveValue("padding-bottom", 25, 12);
+      @include adaptiveValue("padding-left", 41, 16);
+      @include adaptiveValue("padding-right", 41, 16);
+   }
+   // .globe__title
+   &__title {
+      @include adaptiveValue("margin-bottom", 30, 16);
+   }
+   &__country-name,
+   &__snd,
+   &__title {
+      @include adaptiveValue("font-size", 34, 16);
+      line-height: percent(44, 34);
+      font-weight: 700;
+   }
+   // .globe__text
+   &__text {
+      position: relative;
+      max-width: 467px;
+      span {
+         display: inline-block;
+         @include adaptiveValue("padding-left", 20, 14);
+      }
+      &::before {
+         content: "";
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         width: 6px;
+         height: 100%;
+         display: inline-block;
+         background: linear-gradient(180deg, #13a16c 11.62%, #93e736 37.64%, rgba(147, 231, 54, 0) 93.3%);
+         border-radius: 5px;
+      }
+   }
+}

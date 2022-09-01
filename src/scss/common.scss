@@ -1,0 +1,29 @@
+.title {
+   line-height: calc(36 / 30 * 100%);
+   @include adaptiveValue("font-size", 64, 30);
+   font-weight: 700;
+}
+.text {
+   @include adaptiveValue("font-size", 24, 14);
+   line-height: calc(30 / 24 * 100%);
+}
+.main-btn {
+   height: fit-content;
+   line-height: calc(20 / 18 * 100%);
+   color: #ffffff;
+   background-image: linear-gradient(91.65deg, #93e736 -28.46%, #13a16c 105.66%);
+   border-radius: 50px;
+   transition: all 0.3s ease 0s;
+   @media (min-width: $tablet) {
+      &:hover {
+         animation-name: rubberBand;
+         animation-duration: 1s;
+         animation-fill-mode: both;
+      }
+   }
+}
+._container {
+   max-width: 1550px;
+   margin: 0 auto;
+   padding: 0 15px;
+}
