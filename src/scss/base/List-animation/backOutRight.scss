@@ -1,0 +1,38 @@
+@-webkit-keyframes backOutRight {
+   0% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+   }
+   20% {
+      opacity: 0.7;
+      -webkit-transform: translateX(0) scale(0.7);
+      transform: translateX(0) scale(0.7);
+   }
+   to {
+      opacity: 0.7;
+      -webkit-transform: translateX(2000px) scale(0.7);
+      transform: translateX(2000px) scale(0.7);
+   }
+}
+@keyframes backOutRight {
+   0% {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+   }
+   20% {
+      opacity: 0.7;
+      -webkit-transform: translateX(0) scale(0.7);
+      transform: translateX(0) scale(0.7);
+   }
+   to {
+      opacity: 0.7;
+      -webkit-transform: translateX(2000px) scale(0.7);
+      transform: translateX(2000px) scale(0.7);
+   }
+}
+.animate__backOutRight {
+   -webkit-animation-name: backOutRight;
+   animation-name: backOutRight;
+}

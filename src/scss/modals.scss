@@ -1,5 +1,7 @@
 @import "./base/List-animation/headShake";
 @import "./base/List-animation/rubberBand";
+@import "./base/List-animation/bounceIn";
+@import "./base/List-animation/bounceOut";
 
 .modals {
    // .modals__subscribe
@@ -183,10 +185,15 @@
       transition: all 0.3s ease 0s;
       @media (min-width: $tablet) {
          &:hover {
-            animation-name: headShake;
-            animation-timing-function: ease-in-out;
+            -webkit-animation-duration: 1s;
             animation-duration: 1s;
+            -webkit-animation-fill-mode: both;
             animation-fill-mode: both;
+
+            -webkit-animation-name: headShake;
+            animation-name: headShake;
+            -webkit-animation-timing-function: ease-in-out;
+            animation-timing-function: ease-in-out;
          }
       }
    }
@@ -211,61 +218,4 @@
    100% {
       background-position-x: 750px;
    }
-}
-
-@keyframes bounceIn {
-   0%,
-   20%,
-   40%,
-   60%,
-   80%,
-   to {
-      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-   }
-   0% {
-      opacity: 0;
-      transform: scale3d(0.3, 0.3, 0.3);
-   }
-   20% {
-      transform: scale3d(1.1, 1.1, 1.1);
-   }
-   40% {
-      transform: scale3d(0.9, 0.9, 0.9);
-   }
-   60% {
-      opacity: 1;
-      transform: scale3d(1.03, 1.03, 1.03);
-   }
-   80% {
-      transform: scale3d(0.97, 0.97, 0.97);
-   }
-   to {
-      opacity: 1;
-      transform: scaleX(1);
-   }
-}
-.animate__bounceIn {
-   animation-duration: 0.75s;
-   animation-name: bounceIn;
-   animation-fill-mode: both;
-}
-
-@keyframes bounceOut {
-   20% {
-      transform: scale3d(0.9, 0.9, 0.9);
-   }
-   50%,
-   55% {
-      opacity: 1;
-      transform: scale3d(1.1, 1.1, 1.1);
-   }
-   to {
-      transform: scale3d(0.3, 0.3, 0.3);
-      opacity: 0;
-   }
-}
-.animate__bounceOut {
-   animation-duration: 0.75s;
-   animation-name: bounceOut;
-   animation-fill-mode: both;
 }

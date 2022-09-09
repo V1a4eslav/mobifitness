@@ -1,3 +1,5 @@
+@import "./base/List-animation/pulse";
+
 .top {
    @include adaptiveValue("padding-bottom", 79, 48);
    // .top__container
@@ -20,7 +22,7 @@
       font-weight: 500;
       span {
          position: relative;
-         .top__title__icon {
+         .top__title_icon {
             position: absolute;
             right: 0;
             bottom: 0;
@@ -28,6 +30,14 @@
             width: auto;
             object-fit: cover;
             transform: translate(50%, 50%) rotate(-18.7deg);
+            @media (min-width: $tablet) {
+               cursor: pointer;
+               &:hover {
+                  animation-name: tadaIconTitle;
+                  animation-duration: 1s;
+                  animation-fill-mode: both;
+               }
+            }
          }
       }
    }
@@ -54,6 +64,15 @@
          @include adaptiveValue("height", 172, 83);
          width: auto;
          transform: translateY(-90%);
+         @media (min-width: $tablet) {
+            cursor: pointer;
+            &:hover {
+               animation-name: tadaTextLineIcon1;
+               animation-timing-function: ease-in-out;
+               animation-duration: 1s;
+               animation-fill-mode: both;
+            }
+         }
       }
       &_2 {
          right: 15px;
@@ -62,6 +81,14 @@
          @include adaptiveValue("height", 152, 65);
          @media (max-width: $mobile) {
             transform: translateX(-30%) translateY(calc(-100% - percent(30, 100))) rotate(-15.61deg);
+         }
+         @media (min-width: $tablet) {
+            cursor: pointer;
+            &:hover {
+               animation-name: shakeTextLineIcon2;
+               animation-duration: 1s;
+               animation-fill-mode: both;
+            }
          }
       }
    }
@@ -133,22 +160,32 @@
       @media (max-width: $mobileSmall) {
          transform: translate(-56%, -50%);
       }
-      .top__icon_1 {
+   }
+   &__icon {
+      position: absolute;
+      &_1 {
          top: 50%;
          right: 0;
          width: auto;
          height: 168px;
          transform: rotate(16.09deg) translate(25%, -50%);
+         transition: all 0.3s ease 0s;
          @media (max-width: 1920px) {
             transform: rotate(-3deg) translate(25%, -50%);
             top: auto;
             bottom: 0;
             @include adaptiveValue("height", 100, 66);
          }
+         @media (min-width: $tablet) and (max-width: 1920px) {
+            cursor: pointer;
+            &:hover {
+               animation-name: pulseIcon1To1920;
+               animation-timing-function: ease-in-out;
+               animation-duration: 1s;
+               animation-fill-mode: both;
+            }
+         }
       }
-   }
-   &__icon {
-      position: absolute;
       &_2 {
          right: 0;
          top: 32%;
@@ -157,6 +194,15 @@
          transform: rotate(-8.44deg);
          @media (max-width: $tablet) {
             display: none;
+         }
+         @media (min-width: $tablet) and (max-width: 1920px) {
+            cursor: pointer;
+            &:hover {
+               animation-name: pulseIcon2To1920;
+               animation-timing-function: ease-in-out;
+               animation-duration: 1s;
+               animation-fill-mode: both;
+            }
          }
       }
    }
@@ -179,13 +225,15 @@
 }
 .header {
    position: relative;
-   z-index: 2;
    @include adaptiveValue("margin-bottom", 138, 60);
    display: flex;
    justify-content: space-between;
    padding: 40px 0;
+   z-index: 2;
    // .header__logo
    &__logo {
+      position: relative;
+      z-index: 2;
       @include adaptiveValue("height", 60, 43);
       width: auto;
       object-fit: cover;
@@ -218,5 +266,97 @@
    }
    to {
       transform: scale(1.1) rotate(0deg);
+   }
+}
+
+@keyframes pulseIcon1To1920 {
+   0% {
+      transform: rotate(-3deg) translate(25%, -50%) scaleX(1);
+   }
+   50% {
+      transform: rotate(-3deg) translate(25%, -50%) scale3d(1.05, 1.05, 1.05);
+   }
+   to {
+      transform: rotate(-3deg) translate(25%, -50%) scaleX(1);
+   }
+}
+
+@keyframes pulseIcon2To1920 {
+   0% {
+      transform: rotate(-8.44deg) scaleX(1);
+   }
+   50% {
+      transform: rotate(-8.44deg) scale3d(1.05, 1.05, 1.05);
+   }
+   to {
+      transform: rotate(-8.44deg) scaleX(1);
+   }
+}
+
+@keyframes tadaIconTitle {
+   0% {
+      transform: translate(50%, 50%) rotate(-18.7deg) scaleX(1);
+   }
+   10%,
+   20% {
+      transform: translate(50%, 50%) rotate(-21.7deg) scale3d(0.9, 0.9, 0.9);
+   }
+   30%,
+   50%,
+   70%,
+   90% {
+      transform: scale3d(1.1, 1.1, 1.1) translate(50%, 50%) rotate(-15.7deg);
+   }
+   40%,
+   60%,
+   80% {
+      transform: scale3d(1.1, 1.1, 1.1) translate(50%, 50%) rotate(-21.7deg);
+   }
+   to {
+      transform: translate(50%, 50%) rotate(-18.7deg) scaleX(1);
+   }
+}
+
+@keyframes tadaTextLineIcon1 {
+   0% {
+      transform: translateY(-90%) scaleX(1);
+   }
+   10%,
+   20% {
+      transform: translateY(-90%) scale3d(0.9, 0.9, 0.9) rotate(-3deg);
+   }
+   30%,
+   50%,
+   70%,
+   90% {
+      transform: translateY(-90%) scale3d(1.1, 1.1, 1.1) rotate(3deg);
+   }
+   40%,
+   60%,
+   80% {
+      transform: translateY(-90%) scale3d(1.1, 1.1, 1.1) rotate(-3deg);
+   }
+   to {
+      transform: translateY(-90%) scaleX(1);
+   }
+}
+
+@keyframes shakeTextLineIcon2 {
+   0%,
+   to {
+      transform: translateY(calc(-100% - percent(30, 100))) rotate(11.46deg) translateZ(0);
+   }
+   10%,
+   30%,
+   50%,
+   70%,
+   90% {
+      transform: translateY(calc(-100% - percent(30, 100))) rotate(11.46deg) translate3d(0, -10px, 0);
+   }
+   20%,
+   40%,
+   60%,
+   80% {
+      transform: translateY(calc(-100% - percent(30, 100))) rotate(11.46deg) translate3d(0, 10px, 0);
    }
 }

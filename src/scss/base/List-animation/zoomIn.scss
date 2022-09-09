@@ -1,0 +1,24 @@
+@-webkit-keyframes zoomIn {
+   0% {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+   }
+   50% {
+      opacity: 1;
+   }
+}
+@keyframes zoomIn {
+   0% {
+      opacity: 0;
+      -webkit-transform: scale3d(0.3, 0.3, 0.3);
+      transform: scale3d(0.3, 0.3, 0.3);
+   }
+   50% {
+      opacity: 1;
+   }
+}
+.animate__zoomIn {
+   -webkit-animation-name: zoomIn;
+   animation-name: zoomIn;
+}

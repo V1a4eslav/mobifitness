@@ -1,0 +1,26 @@
+@-webkit-keyframes rotateOutUpRight {
+   0% {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+   }
+}
+@keyframes rotateOutUpRight {
+   0% {
+      opacity: 1;
+   }
+   to {
+      opacity: 0;
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+   }
+}
+.animate__rotateOutUpRight {
+   -webkit-animation-name: rotateOutUpRight;
+   animation-name: rotateOutUpRight;
+   -webkit-transform-origin: right bottom;
+   transform-origin: right bottom;
+}
